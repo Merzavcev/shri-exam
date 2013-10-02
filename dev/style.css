@@ -1,0 +1,108 @@
+html, body {
+    padding: 0;
+    margin: 0;
+
+    font-family: Tahoma, sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+}
+body {
+    border-top: 16px solid #AE113D;
+    border-bottom: 16px solid #AE113D;
+
+    background-color: whitesmoke;
+}
+a:link, a:visited {
+    text-decoration: none;
+    color: #2673EC;
+    border-bottom: solid 1px;
+}
+a:hover, a:active {
+    text-decoration: none;
+    color: #006AC1;
+    border-bottom: solid 1px;
+}
+.wrap {
+}
+.purple {
+    background-color: #4E0038;   
+}
+.hero {
+    padding: 70px 40px;
+    margin: 0 auto;
+    max-width: 960px;
+
+    color: #FFF;
+    font-size: 36px;
+    line-height: 38px;
+    font-weight: normal;
+}
+.persons-list {
+    padding: 16px 40px;
+    margin: 0 auto;    
+    max-width: 960px;    
+
+    font-size: 0;
+    text-align: center;
+}
+.persons-list_item {
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 8px;
+    width: 300px;
+    height: 96px;
+
+    border-bottom: 5px solid #AE113D;    
+    border-radius: 48px 8px 8px 48px;
+    background-color: #FFF;
+
+    font-size: 14px;
+    line-height: 18px;
+    text-align: left;
+}
+.persons-list_item:nth-child(2n) {
+    margin-left: 16px;
+    margin-right: 16px;
+}
+.persons-list_item_img {
+    float: left;
+    margin: 8px 8px;
+    width: 80px;
+    height: 80px;
+
+    border-radius: 40px;
+}
+.b-smallinfo {
+    margin: 16px 8px 8px 110px;
+}
+.b-smallinfo::after {
+    display:block;
+    content: '';
+    clear: both;
+}
+.b-smallinfo_fullname:first-letter {
+    color: red;
+}
+.username:link, .username:visited {
+    text-decoration: none;
+    color: #2673EC;
+    border-width: 0;    
+}
+.username:hover, .username:active {
+    text-decoration: none;
+    color: red;
+    border-width: 0;    
+}
+.b-smallinfo_fullname {
+    color: #333;
+    font-size: 16px;
+    line-height: 20px;
+}
+.b-smallinfo_location-n-year {
+    margin-top: 6px;
+
+    color: #888;
+
+    font-size: 12px;
+    line-height: 12px;
+}
