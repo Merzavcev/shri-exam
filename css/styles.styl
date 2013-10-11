@@ -8,39 +8,43 @@ xs = 5px
 s = (2 * xs)
 m = (3 * xs)
 l = (4 * xs)
+xl = (5 * xs)
+xxl = (6 * xs)
 BR = round(2 * LH/3)
 
 body
   padding 0
   margin 0
+  max-width 1080px
+
+  background url('../img/darklines.png')  
+
   font-family Tahoma, sans-serif
   font-size FS
   line-height LH
+
+//
+//  common
+//
+.center {
+  text-align center
+}
+//
+// section sidebar
+//
+
 .sidebar 
-  width (250px - 2 * m)
+  width (250px)
   position fixed
-  left 0
+  left xxl
   top 0
-  bottom 0
-  padding 0 m
+  
+  background url('../img/fabric.png') whitesmoke
 
-  background url('../img/fabric.png')
-.b-intro
-  position relative
-  padding m
-
-  background-color #111
-  color whitesmoke
-  font-size smallerFS
-  line-height smallerLH
-  box-shadow 0 xs (4 * xs) rgba(0,0,0,0.5)
-  &__taskname
-    font-weight bold
-  &__author:first-letter
-    color red
 
 .shri-header
-  padding (3*s) s
+  margin (2*l) 0 m
+  padding l (s+m)
 
   &__name
     display inline-block
@@ -53,26 +57,100 @@ body
     line-height round(1.7 * FS)
 
   &__link
-    display inline-block
-    margin-bottom BR  
-    color gray
-    text-decoration none  
+    &:link, &:visited
+      display inline-block
+      margin-bottom BR  
+      color gray
+      text-decoration none  
+    &:hover, &:active
+      color red
 
 .b-menu
-  padding 0 s
+  padding 0 (s+m)
 
   font-size round(1.2 * FS)
   &__item
     display block
     padding s 0
     // background-color #FFF
-  &__link:link, &__link:visited
-    text-decoration none
-    color #333
-    border-bottom 1px dotted #AAA
+  &__link
+    &:link, &:visited
+      text-decoration none
+      color #333
+      border-bottom 1px dotted #AAA
     &:hover, &:active
       color red
       border-bottom solid 1px
+  &__link_active
+    &:link, &:visited
+      text-decoration none
+      color #333
+      font-weight bold
+    &:hover, &:active
+      color red
+      border-bottom solid 1px
+      
+
+.b-intro
+  margin (2*m) 0 m
+  padding m (s+m)
+
+  background-color #111
+  color whitesmoke
+  font-size smallerFS
+  line-height smallerLH
+  box-shadow 0 xs (4 * xs) rgba(0,0,0,0.5)
+  &__taskname
+    font-weight bold
+  &__author:first-letter
+    color red
+
+
+//
+// section content
+//
+
+.content
+  margin-left (250px + xxl)
+  margin-bottom xxl
+  padding (2*m)
+
+  background-color #FFF
+
+.b-info
+  font-family Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman'
+  font-size round(FS * 1.15)
+  line-height round(FS * 1.15 * 1.5)
+  color #333
+  for v in 1..2
+    &__h{v}-title
+      currentfs = round(FS * 1.15 * (- v + 3.5))
+      currentlh = currentfs
+      margin-top round(0.5 * currentlh)
+      margin-bottom round(0.5 * currentlh)
+
+      font-weight normal
+      font-size: currentfs
+      line-height currentlh
+
+    &__h3-title
+      currentfs = round(FS * 1.15)
+      currentlh = currentfs
+      margin-top round(currentlh)
+      margin-bottom round(0.5 * currentlh)
+
+      font-size: currentfs
+      line-height currentlh
+  & a
+    &:link, &:visited
+      color #2673EC
+      border-bottom: solid 1px
+      text-decoration none
+    &:hover, &:active
+      color red
+      border-bottom: none
+  & p
+    margin round(FS * 1.15) 0
 
 //   border-top: 16px solid #AE113D
 //   border-bottom: 16px solid #AE113D
