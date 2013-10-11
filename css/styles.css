@@ -321,6 +321,9 @@ body {
   margin-bottom: 20px;
   background: #111;
 }
+.b-shortinfo__img {
+  width: 100%;
+}
 .b-shortinfo__name {
   position: absolute;
   left: 0;
