@@ -15,9 +15,10 @@ BR = round(2 * LH/3)
 body
   padding 0
   margin 0
-  max-width 1080px
+  max-width (1080px + xxl)
 
-  background url('../img/darklines.png')  
+  background url('../img/darklines.png')
+  background-attachment fixed  
 
   font-family Tahoma, sans-serif
   font-size FS
@@ -43,7 +44,7 @@ body
 
 
 .shri-header
-  margin (2*l) 0 m
+  margin (m+l) 0 m
   padding l (s+m)
 
   &__name
@@ -123,7 +124,7 @@ body
   line-height round(FS * 1.15 * 1.5)
   color #333
   for v in 1..2
-    &__h{v}-title
+    &__h{v}
       currentfs = round(FS * 1.15 * (- v + 3.5))
       currentlh = currentfs
       margin-top round(0.5 * currentlh)
@@ -133,7 +134,7 @@ body
       font-size: currentfs
       line-height currentlh
 
-    &__h3-title
+    &__h3
       currentfs = round(FS * 1.15)
       currentlh = currentfs
       margin-top round(currentlh)
@@ -152,6 +153,78 @@ body
   & p
     margin round(FS * 1.15) 0
 
+//
+// b-students
+//
+.b-students
+  font-family Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman'
+  font-size round(FS * 1.15)
+  line-height round(FS * 1.15 * 1.5)
+  color #333
+  for v in 1..2
+    &__h{v}
+      currentfs = round(FS * 1.15 * (- v + 3.5))
+      currentlh = currentfs
+      margin-top round(0.5 * currentlh)
+      margin-bottom round(0.5 * currentlh)
+
+      font-weight normal
+      font-size: currentfs
+      line-height currentlh
+
+//
+// b-students-list
+//
+.b-students-list 
+  list-style-type none
+
+  font-size 0
+  line-height 1
+//
+// b-shortinfo
+//
+.b-shortinfo
+  display inline-block
+  vertical-align top
+  position relative
+  width 170px
+  margin-right 20px
+  margin-bottom 20px
+
+  background #111
+  
+  &__name
+    position absolute
+    left 0
+    bottom 0
+    width 1%
+
+    font-family Tahoma, sans-serif
+    font-size 16px
+    line-height 1
+    color #f5f5f5
+
+    opacity 1
+
+    -webkit-transition opacity 0.2s ease
+    -moz-transition opacity 0.2s ease
+    -ms-transition opacity 0.2s ease
+    -o-transition opacity 0.2s ease
+    transition opacity 0.2s ease    
+    
+    & span
+      display inline-block
+      padding 5px
+      
+      background-color rgba(0,0,0,0.7)
+      &:first-child
+        padding-bottom 0
+      &:first-child:first-letter
+        color red  
+  &:hover
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);    
+  &:hover &__name
+    opacity 0
 //   border-top: 16px solid #AE113D
 //   border-bottom: 16px solid #AE113D
 //   background-color: whitesmoke

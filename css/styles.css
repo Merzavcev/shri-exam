@@ -150,8 +150,9 @@ select {
 body {
   padding: 0;
   margin: 0;
-  max-width: 1080px;
+  max-width: 1110px;
   background: url("../img/darklines.png");
+  background-attachment: fixed;
   font-family: Tahoma, sans-serif;
   font-size: 14px;
   line-height: 18px;
@@ -167,7 +168,7 @@ body {
   background: url("../img/fabric.png") #f5f5f5;
 }
 .shri-header {
-  margin: 40px 0 15px;
+  margin: 35px 0 15px;
   padding: 20px 25px;
 }
 .shri-header__name {
@@ -246,27 +247,27 @@ body {
   line-height: 24px;
   color: #333;
 }
-.b-info__h1-title {
+.b-info__h1 {
   margin-top: 20px;
   margin-bottom: 20px;
   font-weight: normal;
   font-size: 40px;
   line-height: 40px;
 }
-.b-info__h3-title {
+.b-info__h3 {
   margin-top: 16px;
   margin-bottom: 8px;
   font-size: 16px;
   line-height: 16px;
 }
-.b-info__h2-title {
+.b-info__h2 {
   margin-top: 12px;
   margin-bottom: 12px;
   font-weight: normal;
   font-size: 24px;
   line-height: 24px;
 }
-.b-info__h3-title {
+.b-info__h3 {
   margin-top: 16px;
   margin-bottom: 8px;
   font-size: 16px;
@@ -285,4 +286,71 @@ body {
 }
 .b-info p {
   margin: 16px 0;
+}
+.b-students {
+  font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman';
+  font-size: 16px;
+  line-height: 24px;
+  color: #333;
+}
+.b-students__h1 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 40px;
+}
+.b-students__h2 {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 24px;
+}
+.b-students-list {
+  list-style-type: none;
+  font-size: 0;
+  line-height: 1;
+}
+.b-shortinfo {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  width: 170px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  background: #111;
+}
+.b-shortinfo__name {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 1%;
+  font-family: Tahoma, sans-serif;
+  font-size: 16px;
+  line-height: 1;
+  color: #f5f5f5;
+  opacity: 1;
+  -webkit-transition: opacity 0.2s ease;
+  -moz-transition: opacity 0.2s ease;
+  -ms-transition: opacity 0.2s ease;
+  -o-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
+}
+.b-shortinfo__name span {
+  display: inline-block;
+  padding: 5px;
+  background-color: rgba(0,0,0,0.7);
+}
+.b-shortinfo__name span:first-child {
+  padding-bottom: 0;
+}
+.b-shortinfo__name span:first-child:first-letter {
+  color: #f00;
+}
+.b-shortinfo:hover {
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+}
+.b-shortinfo:hover .b-shortinfo__name {
+  opacity: 0;
 }
