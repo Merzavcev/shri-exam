@@ -65,6 +65,17 @@
         <h2 class="b-info__h2">Результаты отбора</h2>
         <p>До оценивания было допущено 153 заявки, из них 74 набрали проходной балл. В конечном счёте в Школу было принято 39 человек.</p>
     </section>
+    <section class="b-lectors">
+      <header class="b-lectors__header">
+          <h1 class="b-lectors__h1">Лекторы</h1>
+      </header>
+      <ul class="b-lectors-list" data-bind="foreach: lectors">
+          <li class="b-lectors-list__item b-shortinfo">
+              <a data-bind="attr: {'href': id}"><img class="b-shortinfo__img" data-bind="attr: {'src': photo_url}" data-bind="attr: {'alt': name}"></a>
+              <div class="b-shortinfo__name"><span data-bind="text: name"></span></div>
+          </li>
+      </ul>
+    </section>    
     <section class="b-students">
         <header class="b-students__header">
             <h1 class="b-students__h1">Студенты</h1>
@@ -72,20 +83,8 @@
         <ul class="b-students-list" data-bind="foreach: students">
             <li class="b-students-list__item b-shortinfo">
                 <a data-bind="attr: {'href': link_vk}"><img class="b-shortinfo__img" data-bind="attr: {'src': link_photo}" data-bind="attr: {'alt': last_name}"></a>
-                <div class="b-shortinfo__name"><span data-bind="text: first_name"></span> <span data-bind="text: last_name"></span></div>
+                <div class="b-shortinfo__name"><span data-bind="text: (first_name + ' '+ last_name)"></span></div>
             </li>
-<!--             <li class="b-students-list__item b-shortinfo">
-    <a href="#"><img class="b-shortinfo__img" src="img/big/polyukhovich.jpg" width="100%" alt=""></a>
-    <div class="b-shortinfo__name"><span>Иван</span> <span>Полюхович</span></div>
-</li>
-<li class="b-students-list__item b-shortinfo">
-    <a href="#"><img class="b-shortinfo__img" src="img/big/popov.jpg" width="100%" alt=""></a>
-    <div class="b-shortinfo__name"><span>Никита</span> <span>Попов</span></div>
-</li>
-<li class="b-students-list__item b-shortinfo">
-    <a href="#"><img class="b-shortinfo__img" src="img/big/morozov.jpg" width="100%" alt=""></a>
-    <div class="b-shortinfo__name"><span>Павел</span> <span>Морозов</span></div>
-</li> -->
         </ul>
     </section>
 </section>

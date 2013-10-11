@@ -1,19 +1,23 @@
-var rawStudentsJson;
+var rawStudentsJson = [];
+var rawLectorsJson = [];
+var flags = [];
 
-$.getJSON('json/students', function(data) { rawStudentsJson = data;})
-.done(function() {
+/*function timeout(time) {
+    var promise = new $.Deferred();
 
-/*var MStudent = function () {
-    this.href = 'http://ya.ru/'
-    this.img_src = 'data/faces/students/polyukhovich.jpg';
-    this.first_name = 'Иван';
-    this.last_name = 'Полюхович';
+    setTimeout(promise.resolve, time);
+    return promise;
 }*/
-    var MStudents = function () {
-        this.students = rawStudentsJson;
-    }
-    ko.applyBindings(new MStudents);
-})
-.fail(function() {
-    console.log( "Coundn't get JSON");
-})
+$.when( 
+    $.getJSON('json/students'),
+    $.getJSON('json/lectors')
+)
+.done(function(a1,a2){
+    rawStudentsJson = a1[0];
+    rawLectorsJson = a2[0];
+    var SHRI = {
+        students : rawStudentsJson,
+        lectors : rawLectorsJson
+    }    
+    ko.applyBindings(SHRI);
+});

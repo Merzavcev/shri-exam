@@ -153,6 +153,37 @@ body
   & p
     margin round(FS * 1.15) 0
 
+
+
+//
+// b-lectors
+//
+.b-lectors
+  font-family Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman'
+  font-size round(FS * 1.15)
+  line-height round(FS * 1.15 * 1.5)
+  color #333
+  for v in 1..2
+    &__h{v}
+      currentfs = round(FS * 1.15 * (- v + 3.5))
+      currentlh = currentfs
+      margin-top round(0.5 * currentlh)
+      margin-bottom round(0.5 * currentlh)
+
+      font-weight normal
+      font-size: currentfs
+      line-height currentlh
+      
+//
+// b-lectors-list
+//
+
+.b-lectors-list 
+  list-style-type none
+
+  font-size 0
+  line-height 1
+
 //
 // b-students
 //
@@ -175,6 +206,7 @@ body
 //
 // b-students-list
 //
+
 .b-students-list 
   list-style-type none
 
@@ -199,7 +231,6 @@ body
     position absolute
     left 0
     bottom 0
-    width 1%
 
     font-family Tahoma, sans-serif
     font-size 16px
@@ -219,8 +250,6 @@ body
       padding 5px
       
       background-color rgba(0,0,0,0.7)
-      &:first-child
-        padding-bottom 0
       &:first-child:first-letter
         color red  
   &:hover

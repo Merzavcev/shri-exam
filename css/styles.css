@@ -287,6 +287,31 @@ body {
 .b-info p {
   margin: 16px 0;
 }
+.b-lectors {
+  font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman';
+  font-size: 16px;
+  line-height: 24px;
+  color: #333;
+}
+.b-lectors__h1 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 40px;
+}
+.b-lectors__h2 {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 24px;
+}
+.b-lectors-list {
+  list-style-type: none;
+  font-size: 0;
+  line-height: 1;
+}
 .b-students {
   font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman';
   font-size: 16px;
@@ -328,7 +353,6 @@ body {
   position: absolute;
   left: 0;
   bottom: 0;
-  width: 1%;
   font-family: Tahoma, sans-serif;
   font-size: 16px;
   line-height: 1;
@@ -344,9 +368,6 @@ body {
   display: inline-block;
   padding: 5px;
   background-color: rgba(0,0,0,0.7);
-}
-.b-shortinfo__name span:first-child {
-  padding-bottom: 0;
 }
 .b-shortinfo__name span:first-child:first-letter {
   color: #f00;
