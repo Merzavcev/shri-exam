@@ -18,14 +18,21 @@
         </div>
     </header>
     <nav>
-        <ul class="b-menu">
-            <li class="b-menu__item"><a class="b-menu__link_active" href="#">Что такое ШРИ?</a></li>
-            <li class="b-menu__item"><a class="b-menu__link" href="#">ШРИ в Москве 2013</a></li>
-            <li class="b-menu__item"><a class="b-menu__link" href="#">Программа</a></li>
-            <li class="b-menu__item"><a class="b-menu__link" href="#">Лекторы</a></li>
-            <li class="b-menu__item"><a class="b-menu__link" href="#">Студенты</a></li>
-            <li class="b-menu__item"><a class="b-menu__link" href="#">FAQ</a></li>
+        <ul class="b-menu" data-bind="foreach: mainmenu">
+            <li class="b-menu__item"><a class="b-menu__link" data-bind="text: page_name, attr: {'href': path, class : $root.currentPageId() === id ? 'b-menu__link_active' : 'b-menu__link'}, click : function() { return $root.goToPageId(id);}"></a></li>
         </ul>
+<!-- Todo: Create UI -->
+<!-- <ul class="folders" data-bind="foreach: folders">
+         <li data-bind="text: $data, css: { selected : $data == $root.chosenFolderId() }, click : $root.goToFolder"></li>
+     </ul>
+     
+           <ul class="b-lectors-list" data-bind="foreach: lectors">
+               <li class="b-lectors-list__item b-shortinfo">
+                   <a data-bind="attr: {'href': id}"><img class="b-shortinfo__img" data-bind="attr: {'src': photo_url}" data-bind="attr: {'alt': name}"></a>
+                   <div class="b-shortinfo__name"><span data-bind="text: name"></span></div>
+               </li>
+           </ul>    -->     
+
     </nav>
     <div class="b-intro">
         <div class="b-intro__taskname">Выпускной альбом</div>

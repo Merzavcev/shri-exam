@@ -2,22 +2,35 @@ var rawStudentsJson = [];
 var rawLectorsJson = [];
 var flags = [];
 
-/*function timeout(time) {
-    var promise = new $.Deferred();
-
-    setTimeout(promise.resolve, time);
-    return promise;
-}*/
 $.when( 
     $.getJSON('json/students'),
-    $.getJSON('json/lectors')
+    $.getJSON('json/lectors'),
+    $.getJSON('json/static')
 )
-.done(function(a1,a2){
-    rawStudentsJson = a1[0];
-    rawLectorsJson = a2[0];
-    var SHRI = {
-        students : rawStudentsJson,
-        lectors : rawLectorsJson
-    }    
-    ko.applyBindings(SHRI);
+.done(
+function(a1,a2,a3){
+var StudentsJson = a1[0],
+    LectorsJson = a2[0],
+    menuJson = a3[0];
+
+    var ViewModel = function () {
+        var self = this;
+
+        self.currentPageId = ko.observable(1);
+
+        self.students = StudentsJson;
+        self.lectors = LectorsJson
+        self.mainmenu = menuJson;
+
+        self.goToPageId = function (id) {
+            self.currentPageId(id);
+/*            self.mainmenu.forEach(function(item) {
+                if (item.id === id) {
+                }
+            })*/
+        }
+
+
+    }
+    ko.applyBindings(new ViewModel());
 });
