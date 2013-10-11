@@ -69,27 +69,23 @@
         <header class="b-students__header">
             <h1 class="b-students__h1">Студенты</h1>
         </header>
-        <ul class="b-students-list">
+        <ul class="b-students-list" data-bind="foreach: students">
             <li class="b-students-list__item b-shortinfo">
-                <a href="#"><img class="b-shortinfo__img" src="img/big/polyukhovich.jpg" width="100%" alt=""></a>
-                <div class="b-shortinfo__name"><span>Иван</span> <span>Полюхович</span></div>
+                <a data-bind="attr: {'href': link_vk}"><img class="b-shortinfo__img" data-bind="attr: {'src': link_photo}" data-bind="attr: {'alt': last_name}"></a>
+                <div class="b-shortinfo__name"><span data-bind="text: first_name"></span> <span data-bind="text: last_name"></span></div>
             </li>
-            <li class="b-students-list__item b-shortinfo">
-                <a href="#"><img class="b-shortinfo__img" src="img/big/popov.jpg" width="100%" alt=""></a>
-                <div class="b-shortinfo__name"><span>Никита</span> <span>Попов</span></div>
-            </li>
-            <li class="b-students-list__item b-shortinfo">
-                <a href="#"><img class="b-shortinfo__img" src="img/big/morozov.jpg" width="100%" alt=""></a>
-                <div class="b-shortinfo__name"><span>Павел</span> <span>Морозов</span></div>
-            </li>
-            <li class="b-students-list__item b-shortinfo"></li>
-            <li class="b-students-list__item b-shortinfo"></li>
-            <li class="b-students-list__item b-shortinfo"></li>
-            <li class="b-students-list__item b-shortinfo"></li>
-            <li class="b-students-list__item b-shortinfo"></li>
-            <li class="b-students-list__item b-shortinfo"></li>
-            <li class="b-students-list__item b-shortinfo"></li>
-            <li class="b-students-list__item b-shortinfo"></li>
+<!--             <li class="b-students-list__item b-shortinfo">
+    <a href="#"><img class="b-shortinfo__img" src="img/big/polyukhovich.jpg" width="100%" alt=""></a>
+    <div class="b-shortinfo__name"><span>Иван</span> <span>Полюхович</span></div>
+</li>
+<li class="b-students-list__item b-shortinfo">
+    <a href="#"><img class="b-shortinfo__img" src="img/big/popov.jpg" width="100%" alt=""></a>
+    <div class="b-shortinfo__name"><span>Никита</span> <span>Попов</span></div>
+</li>
+<li class="b-students-list__item b-shortinfo">
+    <a href="#"><img class="b-shortinfo__img" src="img/big/morozov.jpg" width="100%" alt=""></a>
+    <div class="b-shortinfo__name"><span>Павел</span> <span>Морозов</span></div>
+</li> -->
         </ul>
     </section>
 </section>
@@ -138,6 +134,7 @@
     </div>
 </div> -->
 <script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/knockout-2.3.0.js"></script>
 <script type="text/javascript" src="js/user.js"></script>  
 </body>
 </html>
