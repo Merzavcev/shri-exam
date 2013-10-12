@@ -19,8 +19,11 @@
     </header>
     <nav>
         <ul class="b-menu" data-bind="foreach: mainmenu">
-            <li class="b-menu__item"><a class="b-menu__link" data-bind="text: page_name, attr: {'href': path, class : $root.currentPageId() === id ? 'b-menu__link_active' : 'b-menu__link'}, click : function() { return $root.goToPageId(id);}"></a></li>
+            <li class="b-menu__item">
+                <a class="b-menu__link" data-bind="text: page_name, attr: {'href': ('#!/' + path), class : id === $root.id() ? 'b-menu__link_active' : 'b-menu__link'}"></a>
+            </li>
         </ul>
+<!--             <li class="b-menu__item"><a class="b-menu__link" data-bind="text: page_name, attr: {'href': ('#!/' + path), class : $root.current().id === id ? 'b-menu__link_active' : 'b-menu__link'}, click : function() { return $root.setCurrentById(id);}"></a></li> -->
 <!-- Todo: Create UI -->
 <!-- <ul class="folders" data-bind="foreach: folders">
          <li data-bind="text: $data, css: { selected : $data == $root.chosenFolderId() }, click : $root.goToFolder"></li>
@@ -55,7 +58,7 @@
         </header>
         <p>В августе 2013 Яндекс открывал набор во вторую Школу разработки интерфейсов в Москве.</p>
         <p class="center">
-        <iframe class="player" width="480" height="270" src="http://video.yandex.ru/iframe/ya-events/ck9pq8zckh.3409/?player-type=custom&amp;show-info=false&amp;show-logo=false&amp;hd=1"></iframe>
+        <!-- <iframe class="player" width="480" height="270" src="http://video.yandex.ru/iframe/ya-events/ck9pq8zckh.3409/?player-type=custom&amp;show-info=false&amp;show-logo=false&amp;hd=1"></iframe> -->
         </p>
         <p>Мы приглашали студентов старших курсов и недавних выпускников вузов, которые хотят развиваться в области фронтенд-разработки веб-сервисов. Чтобы учиться в нашей Школе, как и прежде, требовались базовые знания по разработке интерфейсов и небольшой опыт их создания.</p>
         <h2 class="b-info__h2">Структура школы</h2>
@@ -82,7 +85,7 @@
               <div class="b-shortinfo__name"><span data-bind="text: name"></span></div>
           </li>
       </ul>
-    </section>    
+    </section>
     <section class="b-students">
         <header class="b-students__header">
             <h1 class="b-students__h1">Студенты</h1>
