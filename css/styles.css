@@ -152,7 +152,6 @@ body {
   margin: 0;
   max-width: 1110px;
   background: url("../img/darklines.png");
-  background-attachment: fixed;
   font-family: Tahoma, sans-serif;
   font-size: 14px;
   line-height: 18px;
