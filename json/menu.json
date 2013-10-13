@@ -1,0 +1,39 @@
+[
+    {
+        "id" : 1,
+        "page_name" : "Что такое ШРИ?",
+        "path" : "about/",
+        "type" : "static",
+        "controls" : "print"
+    },
+    {
+        "id" : 2,
+        "page_name" : "ШРИ в Москве 2013",
+        "path" : "msk2013/",
+        "type" : "static"
+    },
+    {
+        "id" : 3,
+        "page_name" : "Программа",
+        "path" : "lections/",
+        "type" : "lections"
+    },
+    {
+        "id" : 4,
+        "page_name" : "Лекторы",
+        "path" : "lectors/",
+        "type" : "lectors"
+    },
+    {
+        "id" : 5,
+        "page_name" : "Студенты",
+        "path" : "students/",
+        "type" : "students"
+    },
+    {
+        "id" : 6,
+        "page_name" : "FAQ",
+        "path" : "faq/",
+        "type" : "static"
+    }
+]
