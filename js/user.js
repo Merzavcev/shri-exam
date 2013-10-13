@@ -30,11 +30,10 @@ SHRI.namespace = function (ns_string) {
 
 SHRI.namespace('modules.util');
 
-// модуль, хранящий текущее состояние приложения
-SHRI.namespace('current.state'); 
+// модуль, хранящий ViewModel
+SHRI.namespace('vm'); 
 
 SHRI.namespace('modules.menu');
-SHRI.namespace('modules.router');
 SHRI.namespace('modules.static');
 SHRI.namespace('modules.lectors');
 // SHRI.namespace('modules.lections');
@@ -87,15 +86,6 @@ SHRI.modules.util = (function () {
     }
 }()); 
 
-/*$(window).bind('popstate', function(e){
-    var loc = e.location || ( e.originalEvent && e.originalEvent.location ) || document.location;
-    SHRI.current.path = SHRI.modules.util.parsePath(loc.href);
-});*/
-
-
-/**
- * menu - модуль меню
- */
 SHRI.modules.menu = (function () {
 
     var data,
@@ -120,13 +110,6 @@ SHRI.modules.menu = (function () {
         }
     }
 }()); 
-
-SHRI.modules.router = (function () {
-
-    return {
-
-    }
-}());
 
 SHRI.modules.lectors = (function () {
 
@@ -179,9 +162,48 @@ SHRI.modules.students = (function () {
 }());
 
 
+/**
+ * Слушает изменения в строке адреса и исполняет команды, какие находит в ней
+ */
+SHRI.vm.update = function () {
+    var path = SHRI.modules.util.parsePathReg(location.href),
+        mainmenu = SHRI.modules.menu.json(),
+        current = {},
+        page_name,
+        item,
+        mod;
+    
+    // в адресной строке наших параметров нет, показываем корень
+    if (path === null) {
+        current = SHRI.modules.util.selectById(mainmenu, 1);
+    } else {
+        page_name = path[1],
+        item = path[2],
+        mod = path[3];            
+
+        if (mod && mod === "p") {
+            console.log('Активирован режим для печати');
+        }
+        // debug
+        console.log('page_name: ' + page_name);
+        console.log('item: ' + item);
+        console.log('mod: ' + mod);
+
+        if (page_name) {
+            current = SHRI.modules.util.selectByPath(mainmenu, page_name);
+        } else {
+            current = SHRI.modules.util.selectById(mainmenu, 1);
+        }
+    }
+
+    // SHRI.current.state = current;
+    SHRI.vm.id(current.id);
+}
+
+
 SHRI.init = (function () {
 
-    // если обещанные данные пришли, можно начинать
+    // если необходимые данные доступны, инициализация
     $.when( 
         SHRI.modules.menu.promise(),
         SHRI.modules.lectors.promise(),
@@ -189,52 +211,17 @@ SHRI.init = (function () {
     )
     .done(function () {
 
-        SHRI.current.vm = {            
-                students : SHRI.modules.students.json(),
-                lectors : SHRI.modules.lectors.json(),
-                mainmenu : SHRI.modules.menu.json(),
-                id : ko.observable()
-        } 
-
-        SHRI.current.state = {};
-        
-        SHRI.current.update = function () {
-            var path = SHRI.modules.util.parsePathReg(location.href),
-                mainmenu = SHRI.modules.menu.json(),
-                current = {},
-                page_name,
-                item,
-                mod;
-            
-            // в адресной строке наших параметров нет, показываем корень
-            if (path === null) {
-                current = SHRI.modules.util.selectById(mainmenu, 1);
-            } else {
-                page_name = path[1],
-                item = path[2],
-                mod = path[3];            
-
-                // debug
-                // console.log('page_name: ' + page_name);
-                // console.log('id: ' + id);
-                // console.log('mod: ' + mod);
-
-                if (page_name) {
-                    current = SHRI.modules.util.selectByPath(mainmenu, page_name);
-                } else {
-                    current = SHRI.modules.util.selectById(mainmenu, 1);
-                }
-            }
-            SHRI.current.state = current;
-            SHRI.current.vm.id(current.id);
+        SHRI.vm.storage = {            
+            mainmenu : SHRI.modules.menu.json(),
+            lectors : SHRI.modules.lectors.json(),
+            students : SHRI.modules.students.json()
         }
-
+        SHRI.vm.id = ko.observable(0);
         // инициализация текущего состояния
-        SHRI.current.update();
-        $(window).bind('hashchange', SHRI.current.update);
-        ko.applyBindings(SHRI.current.vm);
+        SHRI.vm.update();
+        $(window).bind('hashchange', SHRI.vm.update);
+        ko.applyBindings(SHRI.vm);
         //vm = new ViewModel();
     });
-
 
 }()); 
