@@ -453,6 +453,31 @@ body {
 .b-ya:first-letter {
   color: #f00;
 }
+.b-lections {
+  padding-left: 20px;
+}
+.b-lections__author {
+  font-family: Tahoma, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
 .b-lections-list {
   padding-left: 20px;
+  font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman';
+  font-size: 16px;
+  line-height: 24px;
+  color: #333;
+}
+.b-lections-list a:link,
+.b-lections-list a:visited {
+  color: #2673ec;
+  border-bottom: solid 1px;
+  text-decoration: none;
+}
+.b-lections-list a:hover,
+.b-lections-list a:active {
+  color: #f00;
+  border-bottom: none;
 }

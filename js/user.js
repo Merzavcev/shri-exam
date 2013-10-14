@@ -247,7 +247,18 @@ SHRI.vm.route = function () {
         });
         break;
 
-    case "lections":    
+    case "lections": 
+        if (item) {
+            SHRI.vm.selected({
+                name : 'lection-template',
+                data : SHRI.vm.storage.lections[item - 1]
+            });
+        } else {
+            SHRI.vm.selected({
+                name : 'lections-template',
+                data : SHRI.vm.storage
+            });            
+        }       
         break;
 
     case "lectors":

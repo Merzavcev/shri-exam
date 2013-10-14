@@ -36,16 +36,37 @@
     <div data-bind="html: content"></div>
     <!-- <a class="b-printLink" href="#" onclick="">Распечать на память!</a> -->
 </script>
+<script type="text/html" id="lection-template">
+    <section class="b-lections">
+        <header class="b-header">
+          <h1 class="b-header__h1" data-bind="text: name"></h1>
+        </header>
+        <img data-bind="attr: {'src': SHRI.vm.storage.lectors.filter(function(item) {return item.id === lector_id})[0].photo_url}" data-bind="attr: {'alt': name}">
+        <p class="b-lections__author b-ya" data-bind="text: SHRI.vm.storage.lectors.filter(function(item) {return item.id === lector_id})[0].name"></p>
+        <iframe class="player" width="750" height="250" frameborder="0" data-bind="attr: {'src': video_url}, visible : video_url ? true : false"></iframe>
+        <iframe class="player" width="750" height="625" frameborder="0" data-bind="attr: {'src': slides_url}, visible : slides_url ? true : false"></iframe>
+    </section>
+</script>
+<script type="text/html" id="lections-template">
+    <section class="b-lections">
+        <header class="b-header">
+          <h1 class="b-header__h1">Программа первого этапа</h1>
+        </header>
+        <ul class="b-lections-list" data-bind="foreach: lections">
+            <li class="b-lections-list__item"><a data-bind="attr: {'href': ('#!/lections/' + id)}, text: name"></a></li>
+        </ul>
+    </section>
+</script>
 <script type="text/html" id="lector-template">
     <section class="b-fullinfo">
-      <header class="b-header">
+        <header class="b-header">
           <h1 class="b-header__h1 b-ya" data-bind="text: name"></h1>
-      </header>
-      <img class="" data-bind="attr: {'src': photo_url}" data-bind="attr: {'alt': name}">
-      <p class="b-fullinfo__about" data-bind="html: about"></p>
-      <ul class="b-lections-list" data-bind="template: { name: 'lections-list-template', foreach: SHRI.vm.storage.lections.filter(function(item) {return item.lector_id === id}) }">
-      </ul>
-      </section>
+        </header>
+        <img data-bind="attr: {'src': photo_url}" data-bind="attr: {'alt': name}">
+        <p class="b-fullinfo__about" data-bind="html: about"></p>
+        <ul class="b-lections-list" data-bind="template: { name: 'lections-list-template', foreach: SHRI.vm.storage.lections.filter(function(item) {return item.lector_id === id}) }">
+        </ul>
+    </section>
 </script>
 <script type="text/html" id="lections-list-template">
     <li class="b-lections-list__item"><a data-bind="attr: {'href': ('#!/lections/' + id)}, text: name"></a></li>

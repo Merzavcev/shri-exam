@@ -312,8 +312,30 @@ body
       margin 0 0 16px
       border 0
       height 0
+
 .b-ya:first-letter
   color red
 
+.b-lections
+  padding-left l
+  &__author
+    font-family Tahoma, sans-serif
+    font-size round(FS * 1.15)
+    line-height round(FS * 1.15 * 1.5)
+    color #333
+    margin-bottom 20px
+
 .b-lections-list
   padding-left l
+  font-family Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman'
+  font-size round(FS * 1.15)
+  line-height round(FS * 1.15 * 1.5)
+  color #333
+  & a
+    &:link, &:visited
+      color #2673EC
+      border-bottom: solid 1px
+      text-decoration none
+    &:hover, &:active
+      color red
+      border-bottom: none  
