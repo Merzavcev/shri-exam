@@ -10,14 +10,14 @@
       "id":2,      
       "native_id":143134,
       "name":"Анна Чеботкевич",
-      "about":null,
+      "about":"Рекрутер, отвечает за организацию ШРИ.",
       "photo_url":"data/faces/lectors/chebotkevich.jpg"
     },
     {
       "id":3,      
       "native_id":310,
       "name":"Виктор Ашик",
-      "about":null,
+      "about":"Безумно любит консоль и курирует КИТ.",
       "photo_url":"data/faces/lectors/ashik.jpg"
     },
     {
@@ -38,14 +38,14 @@
       "id":6,      
       "native_id":144389,
       "name":"Дмитрий Поляков",
-      "about":null,
+      "about":"Разработчик интерфейсов на Яндекс.Маркете. Выпускник московской ШРИ-2012. Обожает женские купальники.",
       "photo_url":"data/faces/lectors/polyakov.jpg"
     },
     {
       "id":7,      
       "native_id":151056,
       "name":"Евгений Дорошенко",
-      "about":null,
+      "about":"Разработчик интерфейсов.",
       "photo_url":"data/faces/lectors/doroshenko.jpg"
     },
     {
@@ -66,7 +66,7 @@
       "id":10,      
       "native_id":144433,
       "name":"Михаил Трошев",
-      "about":null,
+      "about":"Руководитель группы разработки поисковых интерфейсов.",
       "photo_url":"data/faces/lectors/troshev.jpg"
     },
     {

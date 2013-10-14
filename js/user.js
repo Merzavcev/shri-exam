@@ -2,7 +2,6 @@
  * Модуль SHRI. Содержит всю логику приложения выпускного альбома
  */
 ;
-// (function () {
 'use strict';
 var SHRI = SHRI || {};
 /**
@@ -32,6 +31,8 @@ SHRI.namespace('modules.util');
 
 // модуль, хранящий ViewModel
 SHRI.namespace('vm'); 
+SHRI.namespace('vm.selected'); 
+SHRI.namespace('vm.selected.storage'); 
 
 SHRI.namespace('modules.menu');
 SHRI.namespace('modules.static');
@@ -79,7 +80,7 @@ SHRI.modules.util = (function () {
              * Ожидаемая структура строки:   :#!/page_name/item:mod 
              * @type {RegExp}
              */
-            var parse_url = /(?:#!\/)([0-9.A-za-z-]+\/)(?:(\d+))?:?(?:([0-9.A-za-z-]+)?)$/,
+            var parse_url = /(?:#!\/)([0-9.A-za-z-]+\/)(?:(\d+$))?:?(?:([0-9.A-za-z-]+)?)$/,
                 result = parse_url.exec(href);
             return result;
         }
@@ -87,6 +88,31 @@ SHRI.modules.util = (function () {
 }()); 
 
 SHRI.modules.menu = (function () {
+
+    var data,
+        promise = new $.Deferred();
+
+    $.getJSON('json/menu')
+    .done(function (a) {
+        data = a;
+        promise.resolve();
+    })
+    .fail(function () {
+        console.log('Не удалось загрузить данные');
+        promise.reject();
+    });
+
+    return {
+        promise : function () {
+            return promise;
+        },
+        json : function () {
+            if (data !== "undefined") return data;
+        }
+    }
+}());
+
+SHRI.modules.static = (function () {
 
     var data,
         promise = new $.Deferred();
@@ -109,7 +135,7 @@ SHRI.modules.menu = (function () {
             if (data !== "undefined") return data;
         }
     }
-}()); 
+}());
 
 SHRI.modules.lectors = (function () {
 
@@ -161,67 +187,136 @@ SHRI.modules.students = (function () {
     }
 }());
 
+SHRI.vm.getHome = function () {
+    // window.history.pushState(null, null, location.origin + location.pathname + '#!/' + SHRI.vm.storage.mainmenu[0].path);
+    location.href = location.origin + location.pathname + '#!/' + SHRI.vm.storage.mainmenu[0].path;
+}
 
-/**
- * Слушает изменения в строке адреса и исполняет команды, какие находит в ней
- */
-SHRI.vm.update = function () {
-    var path = SHRI.modules.util.parsePathReg(location.href),
-        mainmenu = SHRI.modules.menu.json(),
-        current = {},
+SHRI.vm.route = function () {
+    var elements = SHRI.modules.util.parsePathReg(location.href),
+        id,
+        current,
         page_name,
         item,
         mod;
-    
-    // в адресной строке наших параметров нет, показываем корень
-    if (path === null) {
-        current = SHRI.modules.util.selectById(mainmenu, 1);
-    } else {
-        page_name = path[1],
-        item = path[2],
-        mod = path[3];            
 
-        if (mod && mod === "p") {
-            console.log('Активирован режим для печати');
-        }
-        // debug
-        console.log('page_name: ' + page_name);
-        console.log('item: ' + item);
-        console.log('mod: ' + mod);
-
-        if (page_name) {
-            current = SHRI.modules.util.selectByPath(mainmenu, page_name);
-        } else {
-            current = SHRI.modules.util.selectById(mainmenu, 1);
-        }
+    if (elements === null) {
+        SHRI.vm.getHome();
+        return false;
     }
 
-    // SHRI.current.state = current;
-    SHRI.vm.id(current.id);
-}
+    page_name = elements[1];
+    item = elements[2];
+    mod = elements[3];
 
+    current = SHRI.modules.util.selectByPath(SHRI.vm.storage.mainmenu, page_name);
+
+    if (!current) {
+        SHRI.vm.getHome();
+        return false;
+    }
+
+    switch (current.type) {
+    case "static":
+        // статичный контент просто добавляем к дереву
+        var render_item = SHRI.modules.util.selectById(SHRI.vm.storage.static, current.id)
+        SHRI.vm.selected({
+            name : 'static-template',
+            data : render_item
+        });
+        break;
+
+    case "lections":    
+        break;
+
+    case "lectors":
+        if (item) {
+            SHRI.vm.selected({
+                name : 'lector-template',
+                data : SHRI.vm.storage.lectors[item - 1]
+            });
+        } else {
+            SHRI.vm.selected({
+                name : 'lectors-template',
+                data : SHRI.vm.storage
+            });            
+        }    
+        break;
+
+    case "students":
+        if (item) {
+            SHRI.vm.selected({
+                name : 'student-template',
+                data : SHRI.vm.storage.students[item - 1]
+            });
+        } else {
+            SHRI.vm.selected({
+                name : 'students-template',
+                data : SHRI.vm.storage
+            });            
+        }
+        break;
+
+    default:
+    }  
+
+    // если поймали модификатор :p, правим стили и выводим диалог о печати
+    if (mod && mod === "p") {
+        $('html').addClass('print');
+        window.print();
+    } else {
+        $('html').removeClass('print');
+    }
+
+    SHRI.vm.updateState(current.id, page_name, item, mod)
+} 
+/**
+ * Слушает изменения в строке адреса и исполняет команды, какие находит в ней
+ */
+SHRI.vm.updateState = function (id, page_name, item, mod) {
+    SHRI.vm.id(id);
+    SHRI.vm.page_name(page_name);
+    SHRI.vm.item(item);
+    SHRI.vm.mod(mod);  
+}
 
 SHRI.init = (function () {
 
     // если необходимые данные доступны, инициализация
     $.when( 
         SHRI.modules.menu.promise(),
+        SHRI.modules.static.promise(),
         SHRI.modules.lectors.promise(),
         SHRI.modules.students.promise()
     )
     .done(function () {
 
+        // загружаем данные в хранилище
         SHRI.vm.storage = {            
             mainmenu : SHRI.modules.menu.json(),
+            static : SHRI.modules.static.json(),
             lectors : SHRI.modules.lectors.json(),
             students : SHRI.modules.students.json()
         }
+
+        SHRI.vm.student = ko.observable('');
+        SHRI.vm.student(SHRI.vm.storage.students[0]);
         SHRI.vm.id = ko.observable(0);
+        SHRI.vm.page_name = ko.observable('');
+        SHRI.vm.item = ko.observable('');
+        SHRI.vm.mod = ko.observable('');
+
+        // SHRI.vm.selected.name = ko.observable('lectors-template');
+        // SHRI.vm.selected.data = ko.observable(SHRI.vm.storage);
+        SHRI.vm.selected = ko.observable(); 
+
+/*        SHRI.vm.selected.storage = ko.observable('');
+        SHRI.vm.selected.storage(SHRI.vm.storage.students);*/
+
         // инициализация текущего состояния
-        SHRI.vm.update();
-        $(window).bind('hashchange', SHRI.vm.update);
+        SHRI.vm.route();
+        $(window).bind('hashchange', SHRI.vm.route);
         ko.applyBindings(SHRI.vm);
-        //vm = new ViewModel();
     });
 
 }()); 

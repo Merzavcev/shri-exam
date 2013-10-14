@@ -6,9 +6,6 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<header>
-    <h1></h1>
-</header>
 <section class="sidebar">
     <header class="shri-header">
         <h1 class="shri-header__name">Школа<br>Разработки<br>Интерфейсов</h1>
@@ -23,125 +20,74 @@
                 <a class="b-menu__link" data-bind="text: page_name, attr: {'href': ('#!/' + path), class : id === $root.id() ? 'b-menu__link_active' : 'b-menu__link'}"></a>
             </li>
         </ul>
-<!--             <li class="b-menu__item"><a class="b-menu__link" data-bind="text: page_name, attr: {'href': ('#!/' + path), class : $root.current().id === id ? 'b-menu__link_active' : 'b-menu__link'}, click : function() { return $root.setCurrentById(id);}"></a></li> -->
-<!-- Todo: Create UI -->
-<!-- <ul class="folders" data-bind="foreach: folders">
-         <li data-bind="text: $data, css: { selected : $data == $root.chosenFolderId() }, click : $root.goToFolder"></li>
-     </ul>
-     
-           <ul class="b-lectors-list" data-bind="foreach: lectors">
-               <li class="b-lectors-list__item b-shortinfo">
-                   <a data-bind="attr: {'href': id}"><img class="b-shortinfo__img" data-bind="attr: {'src': photo_url}" data-bind="attr: {'alt': name}"></a>
-                   <div class="b-shortinfo__name"><span data-bind="text: name"></span></div>
-               </li>
-           </ul>    -->     
-
     </nav>
     <div class="b-intro">
         <div class="b-intro__taskname">Выпускной альбом</div>
         <div class="b-intro__author">Ивана Полюховича</div>
     </div>    
 </section>
-<section class="content">
-    <section class="b-info">
-        <header class="b-info__header">
-            <h1 class="b-info__h1">Что такое ШРИ?</h1>
+<section class="content" data-bind="template: { name: selected().name, data: selected().data }">
+<!--     <section class="b-fullinfo" data-bind="with: student">
+        <header class="b-fullinfo__header">
+            <h1 class="b-fullinfo__h1" data-bind="text: (first_name + ' '+ last_name)"></h1>
         </header>
-        <p>Школа разработки интерфейсов (ШРИ) организована компанией Яндекс в 2012 году для студентов старших курсов и недавних выпускников вузов, желающих развиваться в области фронтенд-разработки веб-сервисов.</p>
-        <p>Обучение в ШРИ включает в себя две части: курс лекций, посвященных различным аспектам промышленной фронтенд-разработки, и более практическую часть, связанную непосредственно с разработкой. Тех, кто успешно пройдёт практику, мы с удовольствием пригласим на работу или стажировку в Яндекс.</p>
-        <p>На занятиях сотрудники Яндекса рассказывают об инструментах разработчика, о том, как лучше и эффективнее вести работу в команде, о приёмах, которые позволяют сэкономить время, немного о дизайне. Практику ведут ведущие фронтенд-разработчики Яндекса, разрабатывающие интерфейсы для Поиска, Почты, Карт, Маркета и других сервисов Яндекса.</p>
-        <p>Все вопросы о Школе присылайте на адрес: <a href='mailto:intern@yandex-team.ru'>intern@yandex-team.ru</a></p>
-    </section>
-    <section class="b-info">
-        <header class="b-info__header">
-            <h1 class="b-info__h1">ШРИ в Москве 2013</h1>
-        </header>
-        <p>В августе 2013 Яндекс открывал набор во вторую Школу разработки интерфейсов в Москве.</p>
-        <p class="center">
-        <!-- <iframe class="player" width="480" height="270" src="http://video.yandex.ru/iframe/ya-events/ck9pq8zckh.3409/?player-type=custom&amp;show-info=false&amp;show-logo=false&amp;hd=1"></iframe> -->
-        </p>
-        <p>Мы приглашали студентов старших курсов и недавних выпускников вузов, которые хотят развиваться в области фронтенд-разработки веб-сервисов. Чтобы учиться в нашей Школе, как и прежде, требовались базовые знания по разработке интерфейсов и небольшой опыт их создания.</p>
-        <h2 class="b-info__h2">Структура школы</h2>
-        <h3 class="b-info__h3">Теоретический этап</h3>
-        <p>Первый этап обучения представляет собой курс лекций, посвящённых различным сторонам фронтенд-разработки. С программой этого этапа вы можете ознакомиться на этой странице. Лекции продолжаются в течение месяца.</p>
-        <p>Занятия проходят три раза в неделю в московском офисе Яндекса: во вторник и четверг — с 18:30 до 21:30, в субботу — с 12:00 до 15:00.</p>
-        <p>В конце этого этапа слушателям предстоит экзамен. Лучшим студентам мы предложим пройти практический этап Школы.</p>
-        <h3 class="b-info__h3">Практический этап</h3>
-        <p>Практика — это отличный шанс увидеть работу Яндекса изнутри. Практиканты получают корпоративные компьютеры, пропуски в офис, а ещё мы платим им стипендию. В течение двух месяцев практиканты выполняют большое задание под руководством опытного разработчика.</p>
-        <p>Практика позволяет найти применение полученным знаниям в реальной работе над фронтендом в Яндексе.</p>
-        <p>Также во время практики продолжаются лекции, на которые, в отличии от прошлогодней ШРИ, смогут ходить и те студенты, что не получили приглашения на практику.</p>
-        <h2 class="b-info__h2">Как можно было поступить</h2>
-        <p>В этому году в ШРИ можно было поступить, заполнив анкету и выполнив три практических задания. По результатам теста мы рассчитывали пригласить в Школу 30-40 человек.</p>
-        <h2 class="b-info__h2">Результаты отбора</h2>
-        <p>До оценивания было допущено 153 заявки, из них 74 набрали проходной балл. В конечном счёте в Школу было принято 39 человек.</p>
-    </section>
-    <section class="b-lectors">
-      <header class="b-lectors__header">
-          <h1 class="b-lectors__h1">Лекторы</h1>
+        <p class="b-fullinfo__city" data-bind="text: city"></p>
+        <img class="b-fullinfo__img" data-bind="attr: {'src': link_photo}" data-bind="attr: {'alt': last_name}">
+        <p class="b-fullinfo__about" data-bind="html: about"></p>
+    </section> -->
+</section>
+
+
+<script type="text/html" id="static-template">
+    <div data-bind="html: content"></div>
+    <!-- <a class="b-printLink" href="#" onclick="">Распечать на память!</a> -->
+</script> 
+<script type="text/html" id="lector-template">
+    <section class="b-fullinfo">
+      <header class="b-header">
+          <h1 class="b-header__h1 b-ya" data-bind="text: name"></h1>
       </header>
-      <ul class="b-lectors-list" data-bind="foreach: storage.lectors">
+      <img class="" data-bind="attr: {'src': photo_url}" data-bind="attr: {'alt': name}">
+      <p class="b-fullinfo__about" data-bind="html: about"></p>
+    </section>
+</script> 
+<script type="text/html" id="lectors-template">
+    <section class="b-lectors">
+      <header class="b-header">
+          <h1 class="b-header__h1">Лекторы</h1>
+      </header>
+      <ul class="b-lectors-list" data-bind="foreach: lectors">
           <li class="b-lectors-list__item b-shortinfo">
-              <a data-bind="attr: {'href': id}"><img class="b-shortinfo__img" data-bind="attr: {'src': photo_url}" data-bind="attr: {'alt': name}"></a>
+              <a data-bind="attr: {'href': (location.href + id)}"><img class="b-shortinfo__img" data-bind="attr: {'src': photo_url}" data-bind="attr: {'alt': name}"></a>
               <div class="b-shortinfo__name"><span data-bind="text: name"></span></div>
           </li>
       </ul>
     </section>
+</script>    
+<script type="text/html" id="students-template">
     <section class="b-students">
-        <header class="b-students__header">
-            <h1 class="b-students__h1">Студенты</h1>
+        <header class="b-header">
+            <h1 class="b-header__h1">Студенты</h1>
         </header>
-        <ul class="b-students-list" data-bind="foreach: storage.students">
+        <ul class="b-students-list" data-bind="foreach: students">
             <li class="b-students-list__item b-shortinfo">
-                <a data-bind="attr: {'href': link_vk}"><img class="b-shortinfo__img" data-bind="attr: {'src': link_photo}" data-bind="attr: {'alt': last_name}"></a>
+                <a data-bind="attr: {'href': (location.href + id)}"><img class="b-shortinfo__img" data-bind="attr: {'src': link_photo}" data-bind="attr: {'alt': last_name}"></a>
                 <div class="b-shortinfo__name"><span data-bind="text: (first_name + ' '+ last_name)"></span></div>
             </li>
         </ul>
     </section>
-</section>
-<!-- <header class="purple">
-    <h1 class="center hero">Выпускники ШРИ-2013</h1>
-</header>
-<ul class="center persons-list">
-    <li class="persons-list_item">
-        <img class="persons-list_item_img" src="img/small/polyukhovich.small.jpg" alt="Иван Полюхович">
-        <div class="b-smallinfo">
-            <div class="b-smallinfo_fullname"><a class="username" href="#">Иван<br>Полюхович</a></div>
-            <div class="b-smallinfo_location-n-year"><span class="year">23&nbsp;года</span>, <span class="location">Ярославль</span></div>
-        </div>
-    </li>
-    <li class="persons-list_item">
-        <img class="persons-list_item_img" src="img/small/popov.small.jpg" alt="Никита Попов">
-        <div class="b-smallinfo">
-            <div class="b-smallinfo_fullname"><a class="username" href="#">Никита<br>Попов</a></div>
-            <div class="b-smallinfo_location-n-year"><span class="year">26&nbsp;лет</span>, <span class="location">Санкт-Петербург</span></div>
-        </div>
-    </li>
-    <li class="persons-list_item">
-        <img class="persons-list_item_img" src="img/small/morozov.small.jpg" alt="Андрей Морозов">
-        <div class="b-smallinfo">
-            <div class="b-smallinfo_fullname"><a class="username" href="#">Андрей<br>Морозов</a></div>
-            <div class="b-smallinfo_location-n-year"><span class="year">20&nbsp;лет</span>, <span class="location">Ставрополь</span></div>
-        </div>
-    </li>
-</ul>
-<div class="purple__middle">
-    <div class="center">
-        <div class="b-maininfo">
-            <img class="b-maininfo_img" src="img/polyukhovich.jpg" alt="Иван Полюхович">
-            <div class="b-maininfo_wrap">
-                <h1 class="b-maininfo_fullname">Иван Полюхович</h1>
-                <div class="b-maininfo_location-n-year">23&nbsp;года, Ярославль</div>
-                <ul class="b-socials">
-                    <li class="b-socials__item">vk</li>
-                    <li class="b-socials__item">fb</li>
-                    <li class="b-socials__item">gh</li>
-                    <li class="b-socials__item">ya</li>
-                </ul>
-                <div></div>
-            </div>
-        </div>
-    </div>
-</div> -->
+</script>
+<script type="text/html" id="student-template">
+    <section class="b-fullinfo" >
+        <header class="b-header">
+            <h1 class="b-header__h1 b-ya" data-bind="text: (first_name + ' '+ last_name)"></h1>
+        </header>
+        <p class="b-fullinfo__city" data-bind="text: city"></p>
+        <img class="b-fullinfo__img" data-bind="attr: {'src': link_photo}" data-bind="attr: {'alt': last_name}">
+        <p class="b-fullinfo__about" data-bind="html: about"></p>
+    </section>
+</script>
+
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/knockout-2.3.0.js"></script>
 <script type="text/javascript" src="js/user.js"></script>  
