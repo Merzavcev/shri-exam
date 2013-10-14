@@ -76,7 +76,7 @@ SHRI.modules.util = (function () {
              * Ожидаемая структура строки:   :#!/page_name/item:mod 
              * @type {RegExp}
              */
-            var parse_url = /(?:#!\/)([0-9.A-za-z-]+\/)(?:(\d+$))?:?(?:([0-9.A-za-z-]+)?)$/,
+            var parse_url = /(?:#!\/)([0-9.A-za-z-]+\/)(?:(\d+))?:?(?:([0-9.A-za-z-]+$)?)/,
                 result = parse_url.exec(href);
             return result;
         }
@@ -297,6 +297,7 @@ SHRI.vm.route = function () {
 
     // если поймали модификатор :p, правим стили и выводим диалог о печати
     if (mod && mod === "p") {
+        $('.loading').hide();
         $('html').addClass('print');
         window.print();
     } else {

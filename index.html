@@ -29,6 +29,9 @@
 <section class="content">
     <div data-bind="template: { name: selected().name, data: selected().data }"></div>
     <div class="loading"></div>
+    <div class="controls">
+        <a class="b-printLink" href="#" onclick="this.href = location.href + ':p'" title="Любую страницу можно напечатать!">Напечатать!</a>
+    </div>
 </section>
 
 
