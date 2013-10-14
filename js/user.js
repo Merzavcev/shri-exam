@@ -88,7 +88,7 @@ SHRI.modules.menu = (function () {
     var data,
         promise = new $.Deferred();
 
-    $.getJSON('json/menu')
+    $.getJSON('json/menu.json')
     .done(function (a) {
         data = a;
         promise.resolve();
@@ -113,7 +113,7 @@ SHRI.modules.statical = (function () {
     var data,
         promise = new $.Deferred();
 
-    $.getJSON('json/static')
+    $.getJSON('json/static.json')
     .done(function (a) {
         data = a;
         promise.resolve();
@@ -138,7 +138,7 @@ SHRI.modules.lections = (function () {
     var data,
         promise = new $.Deferred();
 
-    $.getJSON('json/lections')
+    $.getJSON('json/lections.json')
     .done(function (a) {
         data = a;
         promise.resolve();
@@ -163,7 +163,7 @@ SHRI.modules.lectors = (function () {
     var data,
         promise = new $.Deferred();
 
-    $.getJSON('json/lectors')
+    $.getJSON('json/lectors.json')
     .done(function (a) {
         data = a;
         promise.resolve();
@@ -188,7 +188,7 @@ SHRI.modules.students = (function () {
     var data,
         promise = new $.Deferred();
 
-    $.getJSON('json/students')
+    $.getJSON('json/students.json')
     .done(function (a) {
         data = a;
         promise.resolve();
