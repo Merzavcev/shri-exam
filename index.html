@@ -30,7 +30,8 @@
     <div data-bind="template: { name: selected().name, data: selected().data }"></div>
     <div class="loading"></div>
     <div class="controls">
-        <a class="b-printLink" href="#" onclick="this.href = location.href + ':p'" title="Любую страницу можно напечатать!">Напечатать!</a>
+        <a class="b-button-link" href="#" onclick="this.href = location.href + ':p'" title="Любую страницу можно напечатать!">Напечатать!</a>
+        <!-- <a class="b-button-link" href="#" onclick="this.href = location.href + ':list'" data-bind="visible: !SHRI.vm.list()">Показать списком!</a> -->
     </div>
 </section>
 
@@ -96,6 +97,18 @@
             <li class="b-students-list__item b-shortinfo">
                 <a data-bind="attr: {'href': (location.href + id)}"><img class="b-shortinfo__img" data-bind="attr: {'src': link_photo}" data-bind="attr: {'alt': last_name}"></a>
                 <div class="b-shortinfo__name"><span data-bind="text: (first_name + ' '+ last_name)"></span></div>
+            </li>
+        </ul>
+    </section>
+</script>
+<script type="text/html" id="students-template-list">
+    <section class="b-students">
+        <header class="b-header">
+            <h1 class="b-header__h1">Студенты</h1>
+        </header>
+        <ul data-bind="foreach: students">
+            <li class="b-ya">
+                <a data-bind="attr: {'href': (location.href + id)}, text: (first_name + ' '+ last_name)"></A>
             </li>
         </ul>
     </section>

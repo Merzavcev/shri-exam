@@ -23,23 +23,25 @@ body
   font-size FS
   line-height LH
 
-.b-printLink
+.b-button-link
   &:link, &:visited
     display inline-block
     padding 5px
+    border-radius 2px
     background-color #AAA
 
     color #f5f5f5
     font-size 13px
     text-decoration none
-  &:hover, &:active
+  &:hover
     background-color #111  
-
+  &:active
+    background-color red  
 
 .print
   & body
     background none
-  & .sidebar, & .b-printLink
+  & .sidebar, & .controls
     display none
   & .content
     width 830px

@@ -156,24 +156,27 @@ body {
   font-size: 14px;
   line-height: 18px;
 }
-.b-printLink:link,
-.b-printLink:visited {
+.b-button-link:link,
+.b-button-link:visited {
   display: inline-block;
   padding: 5px;
+  border-radius: 2px;
   background-color: #aaa;
   color: #f5f5f5;
   font-size: 13px;
   text-decoration: none;
 }
-.b-printLink:hover,
-.b-printLink:active {
+.b-button-link:hover {
   background-color: #111;
+}
+.b-button-link:active {
+  background-color: #f00;
 }
 .print body {
   background: none;
 }
 .print .sidebar,
-.print .b-printLink {
+.print .controls {
   display: none;
 }
 .print .content {

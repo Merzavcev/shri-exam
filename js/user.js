@@ -283,10 +283,21 @@ SHRI.vm.route = function () {
                 data : SHRI.vm.storage.students[item - 1]
             });
         } else {
+            // if (mod && mod === "list") {
+            //     SHRI.vm.selected({
+            //         name : 'students-template-list',
+            //         data : SHRI.vm.storage
+            //     });
+            // } else {
+            //     SHRI.vm.selected({
+            //         name : 'students-template',
+            //         data : SHRI.vm.storage
+            //     });
+            // }
             SHRI.vm.selected({
                 name : 'students-template',
                 data : SHRI.vm.storage
-            });            
+            });
         }
         $(window).scrollTop(0);
 
