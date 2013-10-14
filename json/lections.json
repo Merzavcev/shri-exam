@@ -97,7 +97,7 @@
   },
   {
     "id":13,
-    "lector_id":20,
+    "lector_id":14,
     "native_id":1337,
     "video_url":"http://video.yandex.ru/iframe/ya-events/4fcm2v836x.2020/?player-type=custom\u0026show-info=false\u0026show-logo=false\u0026hd=1",
     "slides_url":"http://www.slideshare.net/slideshow/embed_code/26501715",
@@ -136,7 +136,7 @@
     "name":"Графика в вебе"
   },
   {
-    "id":19,
+    "id":18,
     "lector_id":16,
     "native_id":null,
     "video_url":null,
@@ -144,7 +144,7 @@
     "name":"JS. Базовые знания"
   },
   {
-    "id":20,
+    "id":19,
     "lector_id":16,
     "native_id":null,
     "video_url":null,
@@ -152,7 +152,7 @@
     "name":"Транспорт. Ajax"
   },
   {
-    "id":21,
+    "id":20,
     "lector_id":16,
     "native_id":null,
     "video_url":null,
@@ -160,7 +160,7 @@
     "name":"JS. Асинхронность"
   },
   {
-    "id":22,
+    "id":21,
     "lector_id":23,
     "native_id":null,
     "video_url":null,
@@ -168,7 +168,7 @@
     "name":"MVC"
   },
   {
-    "id":23,
+    "id":22,
     "lector_id":15,
     "native_id":null,
     "video_url":null,
@@ -176,7 +176,7 @@
     "name":"Клиентская оптимизация"
   },
   {
-    "id":24,
+    "id":23,
     "lector_id":17,
     "native_id":null,
     "video_url":null,
@@ -184,7 +184,7 @@
     "name":"Profiler"
   },
   {
-    "id":25,
+    "id":24,
     "lector_id":21,
     "native_id":null,
     "video_url":null,
@@ -192,7 +192,7 @@
     "name":"Шаблонизаторы"
   },
   {
-    "id":26,
+    "id":25,
     "lector_id":1,
     "native_id":null,
     "video_url":null,
@@ -200,7 +200,7 @@
     "name":"jQuery"
   },
   {
-    "id":27,
+    "id":26,
     "lector_id":19,
     "native_id":null,
     "video_url":null,
@@ -208,7 +208,7 @@
     "name":"БЭМ. Теория"
   },
   {
-    "id":28,
+    "id":27,
     "lector_id":22,
     "native_id":null,
     "video_url":null,
@@ -216,7 +216,7 @@
     "name":"БЭМ. Практика"
   },
   {
-    "id":29,
+    "id":28,
     "lector_id":18,
     "native_id":null,
     "video_url":null,
@@ -224,7 +224,7 @@
     "name":"Дизайн"
   },
   {
-    "id":30,
+    "id":29,
     "lector_id":10,
     "native_id":null,
     "video_url":null,
@@ -232,7 +232,7 @@
     "name":"Приёмка задач: общее и бэкенд-разработка"
   },
   {
-    "id":31,
+    "id":30,
     "lector_id":10,
     "native_id":null,
     "video_url":null,
@@ -240,7 +240,7 @@
     "name":"Приёмка задач: дизайн"
   },
   {
-    "id":32,
+    "id":31,
     "lector_id":2,
     "native_id":1286,
     "video_url":"http://video.yandex.ru/iframe/ya-events/r29oly6fy4.4720/?player-type=custom\u0026show-info=false\u0026show-logo=false\u0026hd=1",
@@ -248,7 +248,7 @@
     "name":"Вводная по ШРИ"
   },
   {
-    "id":33,
+    "id":32,
     "lector_id":6,
     "native_id":1288,
     "video_url":"http://video.yandex.ru/iframe/ya-events/vnsrv1de6g.4103/?player-type=custom\u0026show-info=false\u0026show-logo=false\u0026hd=1",
