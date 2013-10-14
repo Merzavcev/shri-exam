@@ -3,8 +3,7 @@
         "id" : 1,
         "page_name" : "Что такое ШРИ?",
         "path" : "about/",
-        "type" : "static",
-        "controls" : "print"
+        "type" : "static"
     },
     {
         "id" : 2,
