@@ -436,6 +436,11 @@ body {
   clear: both;
   content: '';
 }
+.b-fullinfo__about hr {
+  margin: 0 0 16px;
+  border: 0;
+  height: 0;
+}
 .b-ya:first-letter {
   color: #f00;
 }
