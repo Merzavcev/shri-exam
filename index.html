@@ -85,9 +85,14 @@
         <p class="b-fullinfo__city" data-bind="text: city"></p>
         <img class="b-fullinfo__img" data-bind="attr: {'src': link_photo}" data-bind="attr: {'alt': last_name}">
         <p class="b-fullinfo__about" data-bind="html: about"></p>
+        <p class="socials">
+            <a data-bind="attr: {'href' : link_facebook}, visible : link_facebook ? true : false">Facebook</a>
+            <a data-bind="attr: {'href' : link_vk}, visible : link_vk ? true : false">ВКонтакте</a>
+            <a data-bind="attr: {'href' : link_github}, visible : link_github ? true : false">Github</a>
+            <a data-bind="attr: {'href' : link_yaru}, visible : link_yaru ? true : false">Я.ру</a>
+        </p>
     </section>
 </script>
-
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/knockout-2.3.0.js"></script>
 <script type="text/javascript" src="js/user.js"></script>  
