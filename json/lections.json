@@ -1,0 +1,258 @@
+[
+  {
+    "id":1,
+    "lector_id":10,
+    "native_id":1289,
+    "video_url":"http://video.yandex.ru/iframe/ya-events/u7myq83g9q.4811/?player-type=custom\u0026show-info=false\u0026show-logo=false\u0026hd=1",
+    "slides_url":"http://www.slideshare.net/slideshow/embed_code/26263573",
+    "name":"Общий цикл разработки (dev-cycle)"
+  },
+  {
+    "id":2,
+    "lector_id":13,
+    "native_id":1290,
+    "video_url":"http://video.yandex.ru/iframe/ya-events/hlgkkpcf67.3822/?player-type=custom\u0026show-info=false\u0026show-logo=false\u0026hd=1",
+    "slides_url":null,
+    "name":"Документирование информации"
+  },
+  {
+    "id":3,
+    "lector_id":13,
+    "native_id":1291,
+    "video_url":"http://video.yandex.ru/iframe/ya-events/mifh2zd4xw.7143/?player-type=custom\u0026show-info=false\u0026show-logo=false\u0026hd=1",
+    "slides_url":"http://www.slideshare.net/slideshow/embed_code/26263370",
+    "name":"Вики-синтаксис"
+  },
+  {
+    "id":4,
+    "lector_id":3,
+    "native_id":1292,
+    "video_url":"http://video.yandex.ru/iframe/ya-events/yc39l9dh0a.4723/?player-type=custom\u0026show-info=false\u0026show-logo=false\u0026hd=1",
+    "slides_url":"http://www.slideshare.net/slideshow/embed_code/26263542",
+    "name":"Командная строка Unix"
+  },
+  {
+    "id":5,
+    "lector_id":8,
+    "native_id":1293,
+    "video_url":"http://video.yandex.ru/iframe/ya-events/nvby8zm0d8.3121/?player-type=custom\u0026show-info=false\u0026show-logo=false\u0026hd=1",
+    "slides_url":"http://www.slideshare.net/slideshow/embed_code/26263503",
+    "name":"Изучение и редактирование кода"
+  },
+  {
+    "id":6,
+    "lector_id":12,
+    "native_id":1321,
+    "video_url":"http://video.yandex.ru/iframe/ya-events/oeunffeksq.5100/?player-type=custom\u0026show-info=false\u0026show-logo=false\u0026hd=1",
+    "slides_url":null,
+    "name":"Cистемы контроля версий"
+  },
+  {
+    "id":7,
+    "lector_id":9,
+    "native_id":1326,
+    "video_url":"http://video.yandex.ru/iframe/ya-events/u7neb4ukb7.4729/?player-type=custom\u0026show-info=false\u0026show-logo=false\u0026hd=1",
+    "slides_url":"http://www.slideshare.net/slideshow/embed_code/26495249",
+    "name":"Тестирование"
+  },
+  {
+    "id":8,
+    "lector_id":11,
+    "native_id":1327,
+    "video_url":"http://video.yandex.ru/iframe/ya-events/gmhj6jhjbq.7339/?player-type=custom\u0026show-info=false\u0026show-logo=false\u0026hd=1",
+    "slides_url":"http://www.slideshare.net/slideshow/embed_code/26497344",
+    "name":"Развертывание верстки"
+  },
+  {
+    "id":9,
+    "lector_id":1,
+    "native_id":1328,
+    "video_url":"http://video.yandex.ru/iframe/ya-events/w2b30qpu64.4923/?player-type=custom\u0026show-info=false\u0026show-logo=false\u0026hd=1",
+    "slides_url":"http://www.slideshare.net/slideshow/embed_code/26497696",
+    "name":"http-протокол"
+  },
+  {
+    "id":10,
+    "lector_id":5,
+    "native_id":1345,
+    "video_url":null,
+    "slides_url":"http://www.slideshare.net/slideshow/embed_code/26503527",
+    "name":"Архитектура веб-сервисов"
+  },
+  {
+    "id":11,
+    "lector_id":4,
+    "native_id":1329,
+    "video_url":"http://video.yandex.ru/iframe/ya-events/sg6f9vxh4h.7140/?player-type=custom\u0026show-info=false\u0026show-logo=false\u0026hd=1",
+    "slides_url":null,
+    "name":"Механизм работы браузера"
+  },
+  {
+    "id":12,
+    "lector_id":7,
+    "native_id":1330,
+    "video_url":"http://video.yandex.ru/iframe/ya-events/0tk8ubi12b.7216/?player-type=custom\u0026show-info=false\u0026show-logo=false\u0026hd=1",
+    "slides_url":"http://www.slideshare.net/slideshow/embed_code/26501207",
+    "name":"Кеширование на клиенте и сервере"
+  },
+  {
+    "id":13,
+    "lector_id":20,
+    "native_id":1337,
+    "video_url":"http://video.yandex.ru/iframe/ya-events/4fcm2v836x.2020/?player-type=custom\u0026show-info=false\u0026show-logo=false\u0026hd=1",
+    "slides_url":"http://www.slideshare.net/slideshow/embed_code/26501715",
+    "name":"Безопасность веб-приложений"
+  },
+  {
+    "id":14,
+    "lector_id":5,
+    "native_id":1340,
+    "video_url":"http://video.yandex.ru/iframe/ya-events/uery0fxkg2.7247/?player-type=custom\u0026show-info=false\u0026show-logo=false\u0026hd=1",
+    "slides_url":"http://www.slideshare.net/slideshow/embed_code/26501860",
+    "name":"Языки программирования"
+  },
+  {
+    "id":15,
+    "lector_id":1,
+    "native_id":1344,
+    "video_url":"http://video.yandex.ru/iframe/ya-events/x79ax18q9w.3802/?player-type=custom\u0026show-info=false\u0026show-logo=false\u0026hd=1",
+    "slides_url":"http://www.slideshare.net/slideshow/embed_code/26502148",
+    "name":"Регулярные выражения"
+  },
+  {
+    "id":16,
+    "lector_id":20,
+    "native_id":null,
+    "video_url":null,
+    "slides_url":null,
+    "name":"CSS: базовые знания"
+  },
+  {
+    "id":17,
+    "lector_id":15,
+    "native_id":null,
+    "video_url":null,
+    "slides_url":null,
+    "name":"Графика в вебе"
+  },
+  {
+    "id":19,
+    "lector_id":16,
+    "native_id":null,
+    "video_url":null,
+    "slides_url":null,
+    "name":"JS. Базовые знания"
+  },
+  {
+    "id":20,
+    "lector_id":16,
+    "native_id":null,
+    "video_url":null,
+    "slides_url":null,
+    "name":"Транспорт. Ajax"
+  },
+  {
+    "id":21,
+    "lector_id":16,
+    "native_id":null,
+    "video_url":null,
+    "slides_url":null,
+    "name":"JS. Асинхронность"
+  },
+  {
+    "id":22,
+    "lector_id":23,
+    "native_id":null,
+    "video_url":null,
+    "slides_url":null,
+    "name":"MVC"
+  },
+  {
+    "id":23,
+    "lector_id":15,
+    "native_id":null,
+    "video_url":null,
+    "slides_url":null,
+    "name":"Клиентская оптимизация"
+  },
+  {
+    "id":24,
+    "lector_id":17,
+    "native_id":null,
+    "video_url":null,
+    "slides_url":null,
+    "name":"Profiler"
+  },
+  {
+    "id":25,
+    "lector_id":21,
+    "native_id":null,
+    "video_url":null,
+    "slides_url":null,
+    "name":"Шаблонизаторы"
+  },
+  {
+    "id":26,
+    "lector_id":1,
+    "native_id":null,
+    "video_url":null,
+    "slides_url":null,
+    "name":"jQuery"
+  },
+  {
+    "id":27,
+    "lector_id":19,
+    "native_id":null,
+    "video_url":null,
+    "slides_url":null,
+    "name":"БЭМ. Теория"
+  },
+  {
+    "id":28,
+    "lector_id":22,
+    "native_id":null,
+    "video_url":null,
+    "slides_url":null,
+    "name":"БЭМ. Практика"
+  },
+  {
+    "id":29,
+    "lector_id":18,
+    "native_id":null,
+    "video_url":null,
+    "slides_url":null,
+    "name":"Дизайн"
+  },
+  {
+    "id":30,
+    "lector_id":10,
+    "native_id":null,
+    "video_url":null,
+    "slides_url":null,
+    "name":"Приёмка задач: общее и бэкенд-разработка"
+  },
+  {
+    "id":31,
+    "lector_id":10,
+    "native_id":null,
+    "video_url":null,
+    "slides_url":null,
+    "name":"Приёмка задач: дизайн"
+  },
+  {
+    "id":32,
+    "lector_id":2,
+    "native_id":1286,
+    "video_url":"http://video.yandex.ru/iframe/ya-events/r29oly6fy4.4720/?player-type=custom\u0026show-info=false\u0026show-logo=false\u0026hd=1",
+    "slides_url":"http://www.slideshare.net/slideshow/embed_code/26263315",
+    "name":"Вводная по ШРИ"
+  },
+  {
+    "id":33,
+    "lector_id":6,
+    "native_id":1288,
+    "video_url":"http://video.yandex.ru/iframe/ya-events/vnsrv1de6g.4103/?player-type=custom\u0026show-info=false\u0026show-logo=false\u0026hd=1",
+    "slides_url":null,
+    "name":"История успеха выпускников ШРИ"
+  }
+]
