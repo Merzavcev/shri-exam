@@ -29,18 +29,14 @@ SHRI.namespace = function (ns_string) {
 
 SHRI.namespace('modules.util');
 
-// модуль, хранящий ViewModel
-SHRI.namespace('vm'); 
-SHRI.namespace('vm.selected'); 
-SHRI.namespace('vm.selected.storage'); 
 
 SHRI.namespace('modules.menu');
-SHRI.namespace('modules.static');
+SHRI.namespace('modules.statical');
 SHRI.namespace('modules.lectors');
-// SHRI.namespace('modules.lections');
-// SHRI.namespace('modules.students');
-// SHRI.namespace('modules.storage');
+SHRI.namespace('modules.lections');
+SHRI.namespace('modules.students');
 
+SHRI.namespace('vm.selected'); 
 /**
  * util - модуль вспомогательных функций
  */
@@ -112,12 +108,37 @@ SHRI.modules.menu = (function () {
     }
 }());
 
-SHRI.modules.static = (function () {
+SHRI.modules.statical = (function () {
 
     var data,
         promise = new $.Deferred();
 
     $.getJSON('json/static')
+    .done(function (a) {
+        data = a;
+        promise.resolve();
+    })
+    .fail(function () {
+        console.log('Не удалось загрузить данные');
+        promise.reject();
+    });
+
+    return {
+        promise : function () {
+            return promise;
+        },
+        json : function () {
+            if (data !== "undefined") return data;
+        }
+    }
+}());
+
+SHRI.modules.lections = (function () {
+
+    var data,
+        promise = new $.Deferred();
+
+    $.getJSON('json/lections')
     .done(function (a) {
         data = a;
         promise.resolve();
@@ -188,7 +209,6 @@ SHRI.modules.students = (function () {
 }());
 
 SHRI.vm.getHome = function () {
-    // window.history.pushState(null, null, location.origin + location.pathname + '#!/' + SHRI.vm.storage.mainmenu[0].path);
     location.href = location.origin + location.pathname + '#!/' + SHRI.vm.storage.mainmenu[0].path;
 }
 
@@ -200,6 +220,7 @@ SHRI.vm.route = function () {
         item,
         mod;
 
+    $('.loading').show();
     if (elements === null) {
         SHRI.vm.getHome();
         return false;
@@ -219,7 +240,7 @@ SHRI.vm.route = function () {
     switch (current.type) {
     case "static":
         // статичный контент просто добавляем к дереву
-        var render_item = SHRI.modules.util.selectById(SHRI.vm.storage.static, current.id)
+        var render_item = SHRI.modules.util.selectById(SHRI.vm.storage.statical, current.id)
         SHRI.vm.selected({
             name : 'static-template',
             data : render_item
@@ -241,6 +262,7 @@ SHRI.vm.route = function () {
                 data : SHRI.vm.storage
             });            
         }    
+        $(window).scrollTop(0);
         break;
 
     case "students":
@@ -255,6 +277,8 @@ SHRI.vm.route = function () {
                 data : SHRI.vm.storage
             });            
         }
+        $(window).scrollTop(0);
+
         break;
 
     default:
@@ -269,6 +293,7 @@ SHRI.vm.route = function () {
     }
 
     SHRI.vm.updateState(current.id, page_name, item, mod)
+    $('.loading').fadeOut('fast');
 } 
 /**
  * Слушает изменения в строке адреса и исполняет команды, какие находит в ней
@@ -285,8 +310,9 @@ SHRI.init = (function () {
     // если необходимые данные доступны, инициализация
     $.when( 
         SHRI.modules.menu.promise(),
-        SHRI.modules.static.promise(),
+        SHRI.modules.statical.promise(),
         SHRI.modules.lectors.promise(),
+        SHRI.modules.lections.promise(),
         SHRI.modules.students.promise()
     )
     .done(function () {
@@ -294,20 +320,17 @@ SHRI.init = (function () {
         // загружаем данные в хранилище
         SHRI.vm.storage = {            
             mainmenu : SHRI.modules.menu.json(),
-            static : SHRI.modules.static.json(),
+            statical : SHRI.modules.statical.json(),
             lectors : SHRI.modules.lectors.json(),
+            lections : SHRI.modules.lections.json(),
             students : SHRI.modules.students.json()
         }
 
-        SHRI.vm.student = ko.observable('');
-        SHRI.vm.student(SHRI.vm.storage.students[0]);
         SHRI.vm.id = ko.observable(0);
         SHRI.vm.page_name = ko.observable('');
         SHRI.vm.item = ko.observable('');
         SHRI.vm.mod = ko.observable('');
 
-        // SHRI.vm.selected.name = ko.observable('lectors-template');
-        // SHRI.vm.selected.data = ko.observable(SHRI.vm.storage);
         SHRI.vm.selected = ko.observable(); 
 
 /*        SHRI.vm.selected.storage = ko.observable('');

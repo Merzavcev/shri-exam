@@ -26,22 +26,16 @@
         <div class="b-intro__author">Ивана Полюховича</div>
     </div>    
 </section>
-<section class="content" data-bind="template: { name: selected().name, data: selected().data }">
-<!--     <section class="b-fullinfo" data-bind="with: student">
-        <header class="b-fullinfo__header">
-            <h1 class="b-fullinfo__h1" data-bind="text: (first_name + ' '+ last_name)"></h1>
-        </header>
-        <p class="b-fullinfo__city" data-bind="text: city"></p>
-        <img class="b-fullinfo__img" data-bind="attr: {'src': link_photo}" data-bind="attr: {'alt': last_name}">
-        <p class="b-fullinfo__about" data-bind="html: about"></p>
-    </section> -->
+<section class="content">
+    <div data-bind="template: { name: selected().name, data: selected().data }"></div>
+    <div class="loading"></div>
 </section>
 
 
 <script type="text/html" id="static-template">
     <div data-bind="html: content"></div>
     <!-- <a class="b-printLink" href="#" onclick="">Распечать на память!</a> -->
-</script> 
+</script>
 <script type="text/html" id="lector-template">
     <section class="b-fullinfo">
       <header class="b-header">
@@ -49,7 +43,12 @@
       </header>
       <img class="" data-bind="attr: {'src': photo_url}" data-bind="attr: {'alt': name}">
       <p class="b-fullinfo__about" data-bind="html: about"></p>
-    </section>
+      <ul class="b-lections-list" data-bind="template: { name: 'lections-list-template', foreach: SHRI.vm.storage.lections.filter(function(item) {return item.lector_id === id}) }">
+      </ul>
+      </section>
+</script>
+<script type="text/html" id="lections-list-template">
+    <li class="b-lections-list__item"><a data-bind="attr: {'href': ('#!/lections/' + id)}, text: name"></a></li>
 </script> 
 <script type="text/html" id="lectors-template">
     <section class="b-lectors">
